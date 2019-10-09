@@ -48,7 +48,7 @@ def segment(frame, threshold=25):
 cam = cv2.VideoCapture(0)
 
 num_frames = 0
-i = 108
+i = 420
 name = '.png'
 
 while True:
@@ -106,7 +106,7 @@ while True:
         # Change folder name here to get different datasets
         # Press q to capture image
         # Press Esc to quit
-        cv2.imwrite("test/"+str(i)+name, thresholded) 
+        cv2.imwrite("data/fist/"+str(i)+name, thresholded) 
         i += 1
 
 

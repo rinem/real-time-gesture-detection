@@ -1,15 +1,9 @@
 import cv2
 import numpy as np 
 import os 
-from PIL import Image # For handling the images
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg # Plotting
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
-import tensorflow as tf
-import warnings
-warnings.filterwarnings('ignore')
 
 BACKGROUND = None
 ACCUMULATED_WEIGHT = 0.5
@@ -79,7 +73,7 @@ def segment(frame, threshold=25):
 cam = cv2.VideoCapture(0)
 model = load_model()
 num_frames = 0
-label = {0: 'fist', 1: 'index', 2: 'L', 3: 'ok', 4: 'palm', 5: 'peace'}
+label = {0: 'fist', 1: 'L', 2: 'none', 3: 'ok', 4: 'palm', 5: 'peace', 6: 'thumbsup'}
 
 while True:
     ret, frame = cam.read()
