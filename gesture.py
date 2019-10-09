@@ -7,6 +7,7 @@ import matplotlib.image as mpimg # Plotting
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
+import tensorflow as tf
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -127,7 +128,7 @@ while True:
 
     num_frames += 1
     
-    # Display the frame with segmented hand
+    # Display the frame with Gesture Prediction
     cv2.imshow("Gesture Capture", frame_copy)
 
     k = cv2.waitKey(1) & 0xFF
