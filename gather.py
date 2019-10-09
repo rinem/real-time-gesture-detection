@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from sklearn.metrics import pairwise
+
 
 BACKGROUND = None
 ACCUMULATED_WEIGHT = 0.5
@@ -95,7 +95,7 @@ while True:
     num_frames += 1
     
     # Display the frame with segmented hand
-    cv2.imshow("Finger Count", frame_copy)
+    cv2.imshow("Gesture Capture", frame_copy)
 
     k = cv2.waitKey(1) & 0xFF
 
