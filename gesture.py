@@ -4,6 +4,7 @@ import os
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.models import model_from_json
+import pyautogui as pg
 
 BACKGROUND = None
 ACCUMULATED_WEIGHT = 0.5
@@ -114,6 +115,19 @@ while True:
 
             result = model.predict(img)
             l = np.where(result[0] == np.amax(result[0]))
+
+            # # Automation part with gestures
+            # if num_frames % 5 == 0:
+            #     if label[l[0][0]] == 'palm':
+            #         for i in range(2):
+            #             pg.press('volumeup')
+            #     elif label[l[0][0]] == 'fist':
+            #         for i in range(2):
+            #             pg.press('volumedown')
+            #     elif label[l[0][0]] == 'thumbsup':
+            #         pg.press('volumemute')
+                
+
             # Display Prediction
             cv2.putText(frame_copy, "Prediction : "+str(label[l[0][0]])+"\n Accuracy : "+str(result[0][l][0]), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
 
