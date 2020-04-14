@@ -1,9 +1,9 @@
 import cv2
 import numpy as np 
 import os 
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.models import model_from_json
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.models import model_from_json
 import pyautogui as pg
 
 BACKGROUND = None
@@ -12,8 +12,8 @@ ACCUMULATED_WEIGHT = 0.5
 # ROI for detecting the hand
 roi_top = 40
 roi_bottom = 340
-roi_right = 300
-roi_left = 600
+roi_right = 0
+roi_left = 300
 
 # Loading the model
 def load_model():
@@ -72,6 +72,8 @@ def segment(frame, threshold=25):
 # Using the webcam to capture and save the images
 
 cam = cv2.VideoCapture(0)
+cam.set(cv2.CAP_PROP_FRAME_WIDTH, 700)
+cam.set(cv2.CAP_PROP_FRAME_HEIGHT,700)
 model = load_model()
 num_frames = 0
 label = {0: 'fist', 1: 'L', 2: 'none', 3: 'ok', 4: 'palm', 5: 'peace', 6: 'thumbsup'}
@@ -95,7 +97,7 @@ while True:
     if num_frames < 60:
         calc_accum_avg(gray, ACCUMULATED_WEIGHT)
         if num_frames <= 59:
-            cv2.putText(frame_copy, "WAIT! GETTING BACKGROUND AVG.", (200, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
+            cv2.putText(frame_copy, "WAIT! GETTING BACKGROUND AVG.", (200, 400), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
             
     else:
         # Segment the hand region

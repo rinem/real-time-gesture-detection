@@ -106,7 +106,7 @@ while True:
         # Change folder name here to get different datasets
         # Press q to capture image
         # Press Esc to quit
-        cv2.imwrite("data/fist/"+str(i)+name, thresholded) 
+        cv2.imwrite("data/fist/"+str(i)+name, thresholded) #change folder name here <-
         i += 1
 
 
