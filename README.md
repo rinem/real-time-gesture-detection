@@ -1,6 +1,9 @@
 # Gesture Detection in real time 
 A simple app to detect gestures using OpenCV and a deep learning CNN model to predict the gesture in real time.
 
+![in action](/gif/ezgif-4-a62d1677182e.gif)
+- - - - 
+
 ### Dependencies
 The list of required libraries can be found in the requirements.txt file. 
 You can use pip to install the packages from requirements.txt file. 
